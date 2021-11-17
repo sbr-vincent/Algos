@@ -2,7 +2,7 @@
  * @param {number[][]} grid
  * @return {number}
  */
- var uniquePathsIII = function(grid) {
+var uniquePathsIII = function(grid) {
     // let zeroCount = grid.flat().filter(item => item == 0).length;
     let start;
     let zeroCount = 0;
