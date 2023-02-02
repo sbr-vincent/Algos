@@ -65,3 +65,5 @@ function symmetricDifferences(numsA, numsB) {
     //then do the same for numsB to numsA for any values numsB has that numsA does not
     return returnArray;
 }
+
+console.log(symmetricDifferences(test1NumsA,test1NumsB))

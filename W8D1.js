@@ -5,7 +5,7 @@ const squareMatrix2 = [
     [1, 2, 3, 4, 5],
     [1, 2, 3, 4, 5],
 ];
-const expected2 = 0;
+// const expected2 = 0;
 /* 
   left to right diagonal: 1  15
   right to left diagonal: 5 + 4 + 3 + 2 + 1 = 15
@@ -36,9 +36,9 @@ function diagonalDifference(sqrMatrix) {
 
 }
 
-console.log(diagonalDifference(squareMatrix2));
+// console.log(diagonalDifference(squareMatrix2));
 
-console.log(diagonalDifference(squareMatrix2));
+// console.log(diagonalDifference(squareMatrix2));
 
 
 /* 
