@@ -1,7 +1,7 @@
 const competitions = [["HTML", "C#"], ["C#", "Python"], ["Python", "HTML"]]
 const results = [0,0,1]
 
-function tournament(game, total) {
+function tournament(competitions, results) {
     let winner = ''
     let score = Number.MIN_SAFE_INTEGER;
     let obj = {}
