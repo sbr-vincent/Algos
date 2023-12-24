@@ -3,18 +3,41 @@
  * @param {number} k
  * @return {number}
  */
+// This is with Quick Sort
+// var findKthLargest = function(array, k) {
+//     const indexToFind = array.length - k
+//     quickSort(array, 0, array.length-1)
+
+//     return array[indexToFind] 
+// };
+
+// const quickSort = function(array, left, right){
+//     if(left < right){
+//         const partitionIdx = partition(array,left,right);
+//         quickSort(array,left,partitionIdx-1);
+//         quickSort(array, partitionIdx+1, right);
+//     }
+// }
+
+// With Quick Select
 var findKthLargest = function(array, k) {
     const indexToFind = array.length - k
-    quickSort(array, 0, array.length-1)
+    quickSelect(array, 0, array.length-1, indexToFind)
 
     return array[indexToFind] 
 };
 
-const quickSort = function(array, left, right){
+// Only one side of the array is looked at.
+const quickSelect = function(array, left, right, idx){
     if(left < right){
         const partitionIdx = partition(array,left,right);
-        quickSort(array,left,partitionIdx-1);
-        quickSort(array, partitionIdx+1, right);
+        if(partitionIdx == idx){
+            return array[partitionIdx]
+        }else if(idx < partitionIdx){
+            return quickSelect(array, left,partitionIdx-1, idx)
+        }else{
+            return quickSelect(array, partitionIdx+1, right, idx)
+        }
     }
 }
 
