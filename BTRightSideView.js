@@ -87,7 +87,11 @@ var recursiveHelper = function(node, count, allLevels){
         allLevels.push(node.val)
     }
 
-    recursiveHelper(node.right, count + 1, allLevels)
-    recursiveHelper(node.left, count + 1, allLevels)
-    count--
+    if(node.right){
+        recursiveHelper(node.right, count + 1, allLevels)
+    }
+    
+    if(node.left){
+        recursiveHelper(node.left, count + 1, allLevels)
+    }
 }
