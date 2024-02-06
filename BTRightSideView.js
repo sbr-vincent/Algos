@@ -12,7 +12,7 @@
  */
 
 // Breadth First Search solution
-var rightSideView = function(root) {
+var BreadthFirstrightSideView = function(root) {
     // If there is nothing in the root then return []
     if(!root) return []
     
@@ -51,3 +51,43 @@ var rightSideView = function(root) {
 
     return allLevels;
 };
+
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+var DepthFirstrightSideView = function(node) {
+    if(!node) return []
+    
+    let count = 0;
+    const allLevels = [];
+
+    // Call recursive helper
+    recursiveHelper(node, count, allLevels)
+
+    return allLevels;
+
+};
+
+var recursiveHelper = function(node, count, allLevels){
+    // if we hit a leaf node then return nothing
+    if(!node) return
+
+    // if the count is greater than or equal then push it to the allLevels array as that is the node
+    // furthest to the right and the first node we hit each level
+    if(count >= allLevels.length){
+        allLevels.push(node.val)
+    }
+
+    recursiveHelper(node.right, count + 1, allLevels)
+    recursiveHelper(node.left, count + 1, allLevels)
+    count--
+}
