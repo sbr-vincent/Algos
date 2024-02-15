@@ -33,3 +33,25 @@ var largestPerimeter = function(nums) {
     // Return -1 if we can't find a polygon
     return -1
 };
+
+// Revised code
+var largestPerimeter2 = function(nums) {
+    // Sort smallest to biggest
+    nums.sort((a, b) => a - b);
+
+    // Add up the value in the sorted array
+    let sum = nums.reduce((acc, val) => acc + val, 0);
+    let n = nums.length;
+
+    // loop backwards and exit if we are on the 1st index
+    for (let i = n - 1; i >= 2; i--) {
+        // Subtract the value we are looking at from the sum
+        sum -= nums[i];
+        // if the sum is still greater than the value
+        // we just subtracted then return the sum plus the value we subtracted earlier
+        if (sum > nums[i]) {
+            return sum + nums[i];
+        }
+    }
+    return -1;
+};
